@@ -6,7 +6,7 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-#actuator
+# actuator
 management:
   endpoint:
     health:
@@ -14,4 +14,5 @@ management:
   endpoints:
     web:
       exposure:
+        # 激活所有端点
         include: "*"
