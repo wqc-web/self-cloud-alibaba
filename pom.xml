@@ -57,6 +57,12 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- nacos启动服务发现 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
         <!-- 单元测试支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

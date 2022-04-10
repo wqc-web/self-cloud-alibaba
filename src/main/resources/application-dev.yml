@@ -4,3 +4,11 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        # 指定nacos-server地址 : ip:port
+        server-addr: 127.0.0.1:8848
+  application:
+    # 服务名称
+    name: service-user
