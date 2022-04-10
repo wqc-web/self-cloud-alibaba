@@ -9,6 +9,10 @@ spring:
       discovery:
         # 指定nacos-server地址 : ip:port
         server-addr: 127.0.0.1:8848
+        # 命名空间
+        #namespace: df0950b0-df60-4748-ae36-a8ea0711be7a
+        # 集群名称
+        cluster-name: huaian
   application:
     # 服务名称
     name: service-user

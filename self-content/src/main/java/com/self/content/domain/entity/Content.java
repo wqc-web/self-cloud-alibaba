@@ -1,6 +1,8 @@
 package com.self.content.domain.entity;
 
 import javax.persistence.*;
+
+import com.self.content.domain.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,4 +28,6 @@ public class Content {
 
     @Column(name = "user_id")
     private Integer userId;
+
+    private UserDto userDto;
 }
