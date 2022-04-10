@@ -22,6 +22,8 @@ public class TestController {
     ContentMapper contentMapper;
     @Resource
     DiscoveryClient discoveryClient;
+    @Resource
+    RestTemplate restTemplate;
 
     @GetMapping("/test")
     public Object test() {
@@ -33,7 +35,7 @@ public class TestController {
         Content content = contentMapper.selectByPrimaryKey(id);
         List<ServiceInstance> instances = discoveryClient.getInstances("service-user");
         String uri = instances.stream().map(instan -> instan.getUri().toString()).findFirst().orElseThrow(() -> new RuntimeException("service-user不存在"));
-        UserDto userDto = new RestTemplate().getForObject(uri + "/user/getId/{id}", UserDto.class, content.getUserId());
+        UserDto userDto = restTemplate.getForObject(uri + "/user/getId/{id}", UserDto.class, content.getUserId());
         content.setUserDto(userDto);
         return content;
     }
