@@ -63,6 +63,19 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <!-- 让@LoadBalanced注解生效 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
+        <!-- 客户端负载均衡 -->
+        <dependency>
+            <groupId>com.netflix.ribbon</groupId>
+            <artifactId>ribbon</artifactId>
+            <version>2.7.18</version>
+        </dependency>
+
         <!-- 单元测试支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
