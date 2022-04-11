@@ -19,3 +19,13 @@ spring:
   application:
     # 服务名称
     name: service-content
+
+# ribbon负载均衡的规则--不生效
+#service-user:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+# ribbon饥饿加载--不生效
+#ribbon:
+#  eager-load:
+#    enabled: true
+#    clients: service-user
