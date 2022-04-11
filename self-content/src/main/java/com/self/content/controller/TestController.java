@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +30,9 @@ public class TestController {
     }
 
     @GetMapping("/getId/{id}")
-    public Content getId(@PathVariable("id") Integer id){
+    public Content getId(@PathVariable("id") Integer id) {
         Content content = contentMapper.selectByPrimaryKey(id);
-        List<ServiceInstance> instances = discoveryClient.getInstances("service-user");
-        String uri = instances.stream().map(instan -> instan.getUri().toString()).findFirst().orElseThrow(() -> new RuntimeException("service-user不存在"));
-        UserDto userDto = restTemplate.getForObject(uri + "/user/getId/{id}", UserDto.class, content.getUserId());
+        UserDto userDto = restTemplate.getForObject("http://service-user/user/getId/{id}", UserDto.class, content.getUserId());
         content.setUserDto(userDto);
         return content;
     }
