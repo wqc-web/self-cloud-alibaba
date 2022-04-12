@@ -24,4 +24,5 @@ openfeign 声明式、模板化的HTTP客户端
       请求:
           Get: 使用@SpringQueryMap注解封装对象，使用@RequestParam("id")注解传递属性
           Post: 使用@RequestBody注解封装对象
+sentinel 流控防护组件
 ```

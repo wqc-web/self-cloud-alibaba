@@ -81,6 +81,12 @@
             <artifactId>feign-httpclient</artifactId>
         </dependency>
 
+        <!-- 流控防护组件 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
         <!-- 单元测试支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
