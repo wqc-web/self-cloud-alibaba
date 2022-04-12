@@ -25,4 +25,12 @@ openfeign 声明式、模板化的HTTP客户端
           Get: 使用@SpringQueryMap注解封装对象，使用@RequestParam("id")注解传递属性
           Post: 使用@RequestBody注解封装对象
 sentinel 流控防护组件
+      思维:
+          1.超时: 限制访问时间 (释放够快就不容易崩)
+          2.限流: 限制访问数量 (只有1碗饭量，给再多也只吃1碗)
+          3.仓壁: 隔离请求（鸡蛋不放在一个篮子里）
+          4.断路器: 监控+开关 (电流过大就跳闸)
+      控制台:
+          1.github下载: https://github.com/alibaba/Sentinel/tags
+          2.docker下载: bladex/sentinel-dashboard
 ```

@@ -13,6 +13,10 @@ spring:
         #namespace: df0950b0-df60-4748-ae36-a8ea0711be7a
         # 集群名称
         cluster-name: huaian
+    sentinel:
+      transport:
+        # 指定sentinel控制台地址
+        dashboard: 127.0.0.1:8858
   application:
     # 服务名称
     name: service-user

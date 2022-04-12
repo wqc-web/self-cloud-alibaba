@@ -16,6 +16,10 @@ spring:
         # 元数据: 提供描述信息，微服务版本控制
         metadata:
           version: v1
+    sentinel:
+      transport:
+        # 指定sentinel控制台地址
+        dashboard: 127.0.0.1:8858
   application:
     # 服务名称
     name: service-content
