@@ -43,7 +43,7 @@ logging:
 feign:
   client:
     config:
-      # 调用其他服务的名称
-      service-user:
+      # 全局配置
+      default:
         # 打印日志的细节，默认不打印
         loggerLevel: full
