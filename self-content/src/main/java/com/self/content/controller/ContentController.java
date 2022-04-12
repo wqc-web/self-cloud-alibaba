@@ -3,6 +3,7 @@ package com.self.content.controller;
 import com.self.content.dao.ContentMapper;
 import com.self.content.domain.dto.UserDto;
 import com.self.content.domain.entity.Content;
+import com.self.content.feign.BaiduFeignClient;
 import com.self.content.feign.UserFeignClient;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -23,6 +24,8 @@ public class ContentController {
     DiscoveryClient discoveryClient;
     @Resource
     UserFeignClient userFeignClient;
+    @Resource
+    BaiduFeignClient baiduFeignClient;
 
     @GetMapping("/exposeGetUserIdAll/{userId}")
     public List<Content> exposeGetUserIdAll(@PathVariable("userId") Integer userId) {
@@ -46,6 +49,11 @@ public class ContentController {
     @GetMapping("/queryUser")
     public List<UserDto> queryUser(UserDto userDto) {
         return userFeignClient.exposeQueryUser(userDto);
+    }
+
+    @GetMapping("/baidu")
+    public String baidu() {
+        return baiduFeignClient.index();
     }
 
     @GetMapping("/nacosServiceList")
