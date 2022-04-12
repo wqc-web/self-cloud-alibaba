@@ -43,6 +43,11 @@ public class ContentController {
         return content;
     }
 
+    @GetMapping("/queryUser")
+    public List<UserDto> queryUser(UserDto userDto) {
+        return userFeignClient.exposeQueryUser(userDto);
+    }
+
     @GetMapping("/nacosServiceList")
     public List<List> nacosServiceList() {
         List<List> dataList = new ArrayList<>();

@@ -29,17 +29,17 @@ public class UserController {
         return userMapper.selectByPrimaryKey(id);
     }
 
+    @GetMapping("/exposeQueryUser")
+    public List<User> exposeQueryUser(User user) {
+        return userMapper.queryUser(user);
+    }
+
     @GetMapping("/detailById/{id}")
     public User detailById(@PathVariable("id") Integer id) {
         User user = userMapper.selectByPrimaryKey(id);
         List<ContentDto> contentDtoList = contentFeignClient.exposeGetUserIdAll(user.getId());
         user.setContentDtoList(contentDtoList);
         return user;
-    }
-
-    @GetMapping("/queryUser")
-    public List<User> queryUser(User user) {
-        return userMapper.queryUser(user);
     }
 
     @GetMapping("/nacosServiceList")

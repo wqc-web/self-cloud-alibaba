@@ -13,11 +13,15 @@ nacos 服务发现、服务配置、服务元数据及流量管理
       3.metadata 元数据: 提供描述信息，微服务版本控制
 ribbon 客户端负载均衡，使用spring-cloud-starter-loadbalancer让@LoadBalanced注解生效
 openfeign 声明式、模板化的HTTP客户端
-      1.Feign.Builder: Feign的入口
-      2.Client: Feign底层用什么去请求
-      3.Contract: 注解支持，例如SpringMvc
-      4.Encoder: 编码器，用于将对象转换成HTTP请求消息体
-      5.Decoder: 解码器，将响应消息体转换成对象
-      6.Logger: 日志管理器
-      7.RequestInterceptor: 用于为每个请求添加通用逻辑，例如添加请求头
+      配置:
+          1.Feign.Builder: Feign的入口
+          2.Client: Feign底层用什么去请求
+          3.Contract: 注解支持，例如SpringMvc
+          4.Encoder: 编码器，用于将对象转换成HTTP请求消息体
+          5.Decoder: 解码器，将响应消息体转换成对象
+          6.Logger: 日志管理器
+          7.RequestInterceptor: 用于为每个请求添加通用逻辑，例如添加请求头
+      请求:
+          Get: 使用@SpringQueryMap注解封装对象，使用@RequestParam("id")注解传递属性
+          Post: 使用@RequestBody注解封装对象
 ```
