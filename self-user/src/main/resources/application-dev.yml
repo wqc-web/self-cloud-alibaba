@@ -20,3 +20,17 @@ spring:
 # 配置mapper的扫描，找到所有的mapper.xml映射文件
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
+
+# 打印日志
+logging:
+  level:
+    # 指定feign打印日志
+    com.self.user.feign.ContentFeignClient: debug
+
+feign:
+  client:
+    config:
+      # 调用其他服务的名称
+      service-content:
+        # 打印日志的细节，默认不打印
+        loggerLevel: full

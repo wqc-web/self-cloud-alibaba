@@ -39,3 +39,11 @@ logging:
   level:
     # 指定feign打印日志
     com.self.content.feign.UserFeignClient: debug
+
+feign:
+  client:
+    config:
+      # 调用其他服务的名称
+      service-user:
+        # 打印日志的细节，默认不打印
+        loggerLevel: full
