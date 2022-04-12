@@ -12,4 +12,5 @@ nacos 服务发现、服务配置、服务元数据及流量管理
       2.cluster-name 集群名称: 对相同划分优先调用
       3.metadata 元数据: 提供描述信息，微服务版本控制
 ribbon 客户端负载均衡，使用spring-cloud-starter-loadbalancer让@LoadBalanced注解生效
+openfeign 声明式、模板化的HTTP客户端
 ```

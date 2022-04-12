@@ -16,3 +16,7 @@ spring:
   application:
     # 服务名称
     name: service-user
+
+# 配置mapper的扫描，找到所有的mapper.xml映射文件
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml

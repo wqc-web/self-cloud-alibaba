@@ -76,6 +76,12 @@
             <version>2.7.18</version>
         </dependency>
 
+        <!-- 声明式、模板化的HTTP客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!-- 单元测试支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

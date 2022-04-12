@@ -11,4 +11,9 @@
     <result column="comment" jdbcType="VARCHAR" property="comment" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
   </resultMap>
+
+  <select id="selectByUserAll" resultType="com.self.content.domain.entity.Content">
+    select * from t_content where user_id = #{userId}
+  </select>
+
 </mapper>

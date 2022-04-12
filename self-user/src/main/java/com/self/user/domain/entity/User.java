@@ -1,10 +1,14 @@
 package com.self.user.domain.entity;
 
 import javax.persistence.*;
+
+import com.self.user.domain.dto.ContentDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
  * 表名：t_user
@@ -30,4 +34,6 @@ public class User {
     private String wxId;
 
     private String address;
+
+    private List<ContentDto> contentDtoList;
 }
