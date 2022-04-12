@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "service-user")
+@FeignClient(name = "service-user", configuration = SelfFeignConfig.class)
 public interface UserFeignClient {
 
     @GetMapping("/user/exposeGetId/{id}")

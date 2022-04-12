@@ -34,4 +34,8 @@ mybatis:
 #    enabled: true
 #    clients: service-user
 
-
+# 打印日志
+logging:
+  level:
+    # 指定feign打印日志
+    com.self.content.feign.UserFeignClient: debug
