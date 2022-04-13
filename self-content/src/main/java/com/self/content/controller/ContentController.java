@@ -1,5 +1,6 @@
 package com.self.content.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.self.content.dao.ContentMapper;
 import com.self.content.domain.dto.UserDto;
 import com.self.content.domain.entity.Content;
@@ -61,13 +62,21 @@ public class ContentController {
     }
 
     @GetMapping("/testA")
-    public String testA() {
-        return contentService.say();
+    public String testA() throws InterruptedException {
+        Thread.sleep(100);
+        return "testA";
     }
 
     @GetMapping("/testB")
     public String testB() {
-        return contentService.say();
+        contentService.say();
+        return "testB";
+    }
+
+    @SentinelResource("testC")
+    @GetMapping("/testC")
+    public String testC(String a, String b) {
+        return a + "---" + b;
     }
 
     @GetMapping("/nacosServiceList")
