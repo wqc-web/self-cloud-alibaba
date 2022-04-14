@@ -2,6 +2,7 @@ package com.self.content.controller;
 
 import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
+import com.alibaba.csp.sentinel.Tracer;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.self.content.dao.ContentMapper;
@@ -89,12 +90,21 @@ public class ContentController {
             // 定义一个sentinel保护的资源，名称是testApi
             entry = SphU.entry("testApi");
             // 被保护的业务逻辑
+            if (a == null || "".equals(a)) {
+                throw new IllegalArgumentException("a不能为空");
+            }
             return a;
         }
         // 如果被保护的资源限流或降级，就会抛出BlockException
         catch (BlockException e) {
             return "限流或降级: " + e.getMessage();
-        } finally {
+        }
+        catch (IllegalArgumentException e){
+            //Sentinel只会统计BlockException异常，需要调用Tracer.trace()
+            Tracer.trace(e);
+            return e.getMessage();
+        }
+        finally {
             if (entry != null) {
                 entry.exit();
             }
