@@ -17,6 +17,9 @@ spring:
         metadata:
           version: v1
     sentinel:
+      filter:
+        # Spring MVC端点保护 (默认开启)
+        enabled: true
       transport:
         # 指定sentinel控制台地址
         dashboard: 127.0.0.1:8858

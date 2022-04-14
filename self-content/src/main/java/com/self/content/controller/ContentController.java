@@ -1,6 +1,9 @@
 package com.self.content.controller;
 
+import com.alibaba.csp.sentinel.Entry;
+import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.self.content.dao.ContentMapper;
 import com.self.content.domain.dto.UserDto;
 import com.self.content.domain.entity.Content;
@@ -77,6 +80,25 @@ public class ContentController {
     @GetMapping("/testC")
     public String testC(String a, String b) {
         return a + "---" + b;
+    }
+
+    @GetMapping("/testApi")
+    public String testApi(String a) {
+        Entry entry = null;
+        try {
+            // 定义一个sentinel保护的资源，名称是testApi
+            entry = SphU.entry("testApi");
+            // 被保护的业务逻辑
+            return a;
+        }
+        // 如果被保护的资源限流或降级，就会抛出BlockException
+        catch (BlockException e) {
+            return "限流或降级: " + e.getMessage();
+        } finally {
+            if (entry != null) {
+                entry.exit();
+            }
+        }
     }
 
     @GetMapping("/nacosServiceList")
