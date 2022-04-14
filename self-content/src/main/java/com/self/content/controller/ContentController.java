@@ -1,15 +1,13 @@
 package com.self.content.controller;
 
-import com.alibaba.csp.sentinel.Entry;
-import com.alibaba.csp.sentinel.SphU;
-import com.alibaba.csp.sentinel.Tracer;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.self.content.dao.ContentMapper;
 import com.self.content.domain.dto.UserDto;
 import com.self.content.domain.entity.Content;
 import com.self.content.feign.BaiduFeignClient;
 import com.self.content.feign.UserFeignClient;
+import com.self.content.feign.flow.SelfSentinelBlockHandler;
+import com.self.content.feign.flow.SelfSentinelFallBackHandler;
 import com.self.content.service.impl.ContentServiceImpl;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -84,31 +82,13 @@ public class ContentController {
     }
 
     @GetMapping("/testApi")
+    @SentinelResource(value = "testApi", blockHandlerClass = SelfSentinelBlockHandler.class, fallbackClass = SelfSentinelFallBackHandler.class)
     public String testApi(String a) {
-        Entry entry = null;
-        try {
-            // 定义一个sentinel保护的资源，名称是testApi
-            entry = SphU.entry("testApi");
-            // 被保护的业务逻辑
-            if (a == null || "".equals(a)) {
-                throw new IllegalArgumentException("a不能为空");
-            }
-            return a;
+        // 被保护的业务逻辑
+        if (a == null || "".equals(a)) {
+            throw new IllegalArgumentException("a不能为空");
         }
-        // 如果被保护的资源限流或降级，就会抛出BlockException
-        catch (BlockException e) {
-            return "限流或降级: " + e.getMessage();
-        }
-        catch (IllegalArgumentException e){
-            //Sentinel只会统计BlockException异常，需要调用Tracer.trace()
-            Tracer.trace(e);
-            return e.getMessage();
-        }
-        finally {
-            if (entry != null) {
-                entry.exit();
-            }
-        }
+        return a;
     }
 
     @GetMapping("/nacosServiceList")
