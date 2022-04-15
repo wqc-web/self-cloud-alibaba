@@ -9,11 +9,17 @@ spring:
       discovery:
         # 指定nacos-server地址 : ip:port
         server-addr: 127.0.0.1:8848
-        # 命名空间
+        # 命名空间 : 对不同环境隔离
         #namespace: df0950b0-df60-4748-ae36-a8ea0711be7a
-        # 集群名称
+        # 集群名称 : 对相同划分优先调用
         cluster-name: huaian
+        # 元数据: 提供描述信息，微服务版本控制
+        metadata:
+          version: v1
     sentinel:
+      filter:
+        # Spring MVC端点保护 (默认开启)
+        enabled: true
       transport:
         # 指定sentinel控制台地址
         dashboard: 127.0.0.1:8858
@@ -29,7 +35,7 @@ mybatis:
 logging:
   level:
     # 指定feign打印日志
-    com.self.user.feign.ContentFeignClient: debug
+    com.self.content.feign.UserFeignClient: debug
 
 feign:
   client:
@@ -45,3 +51,6 @@ feign:
     max-connections: 200
     # feign单个路径的最大连接数
     max-connections-per-route: 50
+  sentinel:
+    # feign开启sentinel
+    enabled: true

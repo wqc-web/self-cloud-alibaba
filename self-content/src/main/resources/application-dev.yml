@@ -31,16 +31,6 @@ spring:
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
 
-# ribbon负载均衡的规则--不生效-版本问题
-#service-user:
-#  ribbon:
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-# ribbon饥饿加载--不生效-版本问题
-#ribbon:
-#  eager-load:
-#    enabled: true
-#    clients: service-user
-
 # 打印日志
 logging:
   level:
@@ -61,3 +51,6 @@ feign:
     max-connections: 200
     # feign单个路径的最大连接数
     max-connections-per-route: 50
+  sentinel:
+    # feign开启sentinel
+    enabled: true
