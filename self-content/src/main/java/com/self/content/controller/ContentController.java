@@ -82,7 +82,11 @@ public class ContentController {
     }
 
     @GetMapping("/testApi")
-    @SentinelResource(value = "testApi", blockHandlerClass = SelfSentinelBlockHandler.class, fallbackClass = SelfSentinelFallBackHandler.class)
+    @SentinelResource(
+            value = "testApi",
+            blockHandler = "block", blockHandlerClass = SelfSentinelBlockHandler.class,
+            fallback = "fallback", fallbackClass = SelfSentinelFallBackHandler.class
+    )
     public String testApi(String a) {
         // 被保护的业务逻辑
         if (a == null || "".equals(a)) {
