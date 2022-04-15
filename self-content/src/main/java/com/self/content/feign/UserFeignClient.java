@@ -1,6 +1,7 @@
 package com.self.content.feign;
 
 import com.self.content.domain.dto.UserDto;
+import com.self.content.feign.sentinel.SelfFeignSentinelFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "service-user")
+@FeignClient(name = "service-user", fallbackFactory = SelfFeignSentinelFallbackFactory.class)
 public interface UserFeignClient {
 
     @GetMapping("/user/exposeGetId/{id}")
