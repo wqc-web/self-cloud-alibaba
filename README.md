@@ -50,4 +50,6 @@ sentinel 流控防护组件
           5.授权Sentinel与控制台通信
                 --注册: Sentinel注册到控制台后，会定时发送心跳 (服务发现)
                 --调用: 控制台添加规则，就会调用Sentinel监控规则的api (ip+port+apiAddress)
+      全局异常处理:
+          1.实现BlockExceptionHandler接口，加上@Component注解生效
 ```
