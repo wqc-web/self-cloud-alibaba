@@ -57,5 +57,8 @@ sentinel 流控防护组件
           2.针对来源: 
                     --描述: 对所有请求返回针对来源，可以在请求和sentinel之间添加自定义处理
                     --实现: 实现RequestOriginParser接口，加上@Component注解生效
+          3.REST风格API:
+                    --描述: 对RESTURL统一处理，例如: /clean/{id} 这个URL，统一归集到 /clean/* 资源下
+                    --实现: 实现UrlCleaner接口，加上@Component注解生效
 
 ```
