@@ -1,9 +1,9 @@
-package com.self.user.controller;
+package com.self.rocketmq.controller;
 
-import com.self.user.dao.UserMapper;
-import com.self.user.domain.dto.ContentDto;
-import com.self.user.domain.entity.User;
-import com.self.user.feign.ContentFeignClient;
+import com.self.rocketmq.dao.UserMapper;
+import com.self.rocketmq.domain.dto.ContentDto;
+import com.self.rocketmq.domain.entity.User;
+import com.self.rocketmq.feign.ContentFeignClient;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;

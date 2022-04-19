@@ -22,13 +22,13 @@
                         password="${jdbc.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.self.user.domain.entity"
+        <javaModelGenerator targetPackage="com.self.rocketmq.domain.entity"
                             targetProject="src/main/java"/>
 
         <sqlMapGenerator targetPackage="mapper"
                          targetProject="src/main/resources"/>
 
-        <javaClientGenerator targetPackage="com.self.user.dao"
+        <javaClientGenerator targetPackage="com.self.rocketmq.dao"
                              targetProject="src/main/java"
                              type="XMLMAPPER"/>
 

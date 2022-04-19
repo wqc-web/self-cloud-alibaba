@@ -1,6 +1,6 @@
-package com.self.user.feign;
+package com.self.rocketmq.feign;
 
-import com.self.user.domain.dto.ContentDto;
+import com.self.rocketmq.domain.dto.ContentDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

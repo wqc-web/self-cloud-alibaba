@@ -1,6 +1,6 @@
-package com.self.user.dao;
+package com.self.rocketmq.dao;
 
-import com.self.user.domain.entity.User;
+import com.self.rocketmq.domain.entity.User;
 import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 

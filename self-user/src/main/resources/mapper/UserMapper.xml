@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.self.user.dao.UserMapper">
-    <resultMap id="BaseResultMap" type="com.self.user.domain.entity.User">
+    <resultMap id="BaseResultMap" type="com.self.rocketmq.domain.entity.User">
         <!--
           WARNING - @mbg.generated
         -->
@@ -14,7 +14,7 @@
         <result column="address" jdbcType="VARCHAR" property="address"/>
     </resultMap>
 
-    <select id="queryUser" resultType="com.self.user.domain.entity.User">
+    <select id="queryUser" resultType="com.self.rocketmq.domain.entity.User">
         select * from t_user
         <where>
             <if test="user.name != null and user.name != ''">
