@@ -1,4 +1,4 @@
-package com.self.rocketmq.domain.dto;
+package com.self.user.domain.dto;
 
 import lombok.Data;
 

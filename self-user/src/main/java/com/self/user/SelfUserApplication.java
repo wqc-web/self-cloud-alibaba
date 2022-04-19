@@ -1,4 +1,4 @@
-package com.self.rocketmq;
+package com.self.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

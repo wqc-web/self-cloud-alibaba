@@ -1,7 +1,0 @@
-server:
-  port: 8101
-  servlet:
-    context-path: /rocketmq
-spring:
-  profiles:
-    active: dev

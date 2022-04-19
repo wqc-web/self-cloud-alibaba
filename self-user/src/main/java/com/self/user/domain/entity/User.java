@@ -1,8 +1,8 @@
-package com.self.rocketmq.domain.entity;
+package com.self.user.domain.entity;
 
 import javax.persistence.*;
 
-import com.self.rocketmq.domain.dto.ContentDto;
+import com.self.user.domain.dto.ContentDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -19,7 +19,6 @@
     <modules>
         <module>self-user</module>
         <module>self-content</module>
-        <module>self-rocketmq</module>
     </modules>
 
 </project>
