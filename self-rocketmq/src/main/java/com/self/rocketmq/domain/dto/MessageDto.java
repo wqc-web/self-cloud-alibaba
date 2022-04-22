@@ -11,5 +11,4 @@ public class MessageDto {
     private String content;
     private String userName;
     private LocalDateTime time;
-
 }

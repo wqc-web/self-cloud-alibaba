@@ -25,18 +25,21 @@ public class SelfRocketMqController {
     }
 
 
-    @GetMapping("/send")
-    public MessageDto send(MessageDto messageDto) {
+    @GetMapping("/sendTransaction")
+    public MessageDto sendTransaction(MessageDto messageDto) {
         messageDto.setId(new Random().nextInt(100));
         messageDto.setTime(LocalDateTime.now());
         rocketMQTemplate.sendMessageInTransaction(
                 "self-transaction-topic",
                 MessageBuilder
-                        .withPayload(messageDto)
+                        // 消息内容
+                        .withPayload(messageDto.getContent() + messageDto.getTime().toString())
+                        //传递消息头
                         .setHeader(RocketMQHeaders.TRANSACTION_ID, UUID.randomUUID().toString())
-                        .setHeader("id", messageDto.getId())
+                        .setHeader("self-id", messageDto.getId())
                         .build(),
-                "arg..."
+                //传递参数对象
+                messageDto
         );
         return messageDto;
     }

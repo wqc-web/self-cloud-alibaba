@@ -1,5 +1,6 @@
 package com.self.rocketmq.service;
 
+import com.self.rocketmq.domain.dto.MessageDto;
 import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionState;
@@ -14,16 +15,15 @@ public class SelfRocketMQLocalTransactionListener implements RocketMQLocalTransa
      * 确认
      */
     @Override
-    public RocketMQLocalTransactionState executeLocalTransaction(Message message, Object o) {
+    public RocketMQLocalTransactionState executeLocalTransaction(Message message, Object arg) {
         //获取传递参数
         MessageHeaders headers = message.getHeaders();
         String transactionId = (String) headers.get(RocketMQHeaders.TRANSACTION_ID);
-        Integer id = (Integer) headers.get("id");
+        String selfId = (String) headers.get("self-id");
         //业务操作
         try {
-
-
-
+            MessageDto messageDto = (MessageDto) arg;
+            Object payload = message.getPayload();
             //RocketMQ提交
             return RocketMQLocalTransactionState.COMMIT;
         }catch (Exception e){
@@ -38,6 +38,12 @@ public class SelfRocketMQLocalTransactionListener implements RocketMQLocalTransa
      */
     @Override
     public RocketMQLocalTransactionState checkLocalTransaction(Message message) {
-        return null;
+        //获取传递参数
+        MessageHeaders headers = message.getHeaders();
+        String transactionId = (String) headers.get(RocketMQHeaders.TRANSACTION_ID);
+        String selfId = (String) headers.get("self-id");
+        Object payload = message.getPayload();
+        return RocketMQLocalTransactionState.COMMIT;
     }
+
 }
