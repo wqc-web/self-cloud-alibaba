@@ -61,5 +61,6 @@ sentinel 流控防护组件
                     --描述: 对RESTURL统一处理，例如: /clean/{id} 这个URL，统一归集到 /clean/* 资源下
                     --实现: 实现UrlCleaner接口，加上@Component注解生效
 RocketMQ 消息队列
+Gateway 网关
 
 ```

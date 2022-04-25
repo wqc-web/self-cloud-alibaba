@@ -20,6 +20,7 @@
         <module>self-user</module>
         <module>self-content</module>
         <module>self-rocketmq</module>
+        <module>self-Gateway</module>
     </modules>
 
 </project>

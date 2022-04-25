@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        # 指定nacos-server地址 : ip:port
+        server-addr: 127.0.0.1:8848
+        # 命名空间 : 对不同环境隔离
+        #namespace: df0950b0-df60-4748-ae36-a8ea0711be7a
+        # 集群名称 : 对相同划分优先调用
+        cluster-name: huaian
+        # 元数据: 提供描述信息，微服务版本控制
+        metadata:
+          version: v1
+    gateway:
+      discovery:
+        locator:
+          # 让gateway找到其他微服务
+          enabled: true
+
+  application:
+    # 服务名称
+    name: service-gateway
