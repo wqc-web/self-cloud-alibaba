@@ -16,7 +16,11 @@ spring:
         locator:
           # 让gateway找到其他微服务
           enabled: true
-
+      routes:
+        - id: user
+          uri: lb://service-user
+          predicates:
+            - Path=/user/**
   application:
     # 服务名称
     name: service-gateway
