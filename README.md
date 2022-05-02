@@ -62,5 +62,8 @@ sentinel 流控防护组件
                     --实现: 实现UrlCleaner接口，加上@Component注解生效
 RocketMQ 消息队列
 Gateway 网关
-
+      核心:
+          1.Route (路由): SpringCloudGateway的基础元素，是一个转发规则。包含: ID、目标URI、Predicate集合、Filter集合
+          2.Predicate (谓词): 路由匹配
+          3.Filter (过滤器): 修改请求以及响应
 ```
