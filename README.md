@@ -71,5 +71,6 @@ Gateway 网关
           2.创建TimeBetweenRoutePredicateFactory类(类名格式：自定义名称 + RoutePredicateFactory)，继承AbstractRoutePredicateFactory类，实现apply(是否能访问)、shortcutFieldOrder(获取参数)方法
       filters过滤器工厂:
           1.Spring Cloud Gateway的路由过滤器允许以某种方式修改传入的HTTP请求或输出的HTTP响应。只作用于特定的路由
-          2.AddRequestHeader=selfhead, selfridicule : 添加请求头
+          2.添加请求头: AddRequestHeader=selfhead, selfridicule 
+          3.自定义，创建PreLogGatewayFilterFactory类(类名格式：自定义名称 + GatewayFilterFactory)，继承AbstractNameValueGatewayFilterFactory类，实现apply(对请求进行过滤操作)
 ```
