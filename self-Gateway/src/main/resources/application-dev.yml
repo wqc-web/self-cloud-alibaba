@@ -34,7 +34,9 @@ spring:
           uri: lb://service-content
           predicates:
             - Path=/content/**
-            - TimeBetween=2022-05-02 09:10:00,2022-05-02 18:10:00
+            - TimeBetween=2022-05-02 09:10:00,2022-05-02 22:10:00
+          filters:
+            - AddRequestHeader=selfhead, selfridicule
   application:
     # 服务名称
     name: service-gateway

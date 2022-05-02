@@ -69,5 +69,7 @@ Gateway 网关
       自定义Predicate:
           1.yml文件predicates属性下自定义: - TimeBetween=2022-05-02 09:10:00,2022-05-02 18:10:00
           2.创建TimeBetweenRoutePredicateFactory类(类名格式：自定义名称 + RoutePredicateFactory)，继承AbstractRoutePredicateFactory类，实现apply(是否能访问)、shortcutFieldOrder(获取参数)方法
-
+      filters过滤器工厂:
+          1.Spring Cloud Gateway的路由过滤器允许以某种方式修改传入的HTTP请求或输出的HTTP响应。只作用于特定的路由
+          2.AddRequestHeader=selfhead, selfridicule : 添加请求头
 ```
