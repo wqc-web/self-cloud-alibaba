@@ -16,7 +16,20 @@ spring:
         locator:
           # 让gateway找到其他微服务
           enabled: true
-
+      enabled: true
+      routes:
+        - id: service-user
+          # 注册中心配置方式，service-user是另一个服务里配置的服务名称，和nacos里注册服务名称相同
+          uri: lb://service-user
+          # websocket方式
+          # uri: ws://127.0.0.1:8990/
+          # 服务地址配置方式
+          # uri: http://127.0.0.1:8990/
+          predicates:
+            - Path=/user/**
+#          filters:
+            # 表示在将请求发送到下游之前从请求中剥离的路径个数，1表示从二级url路径转发
+#            - StripPrefix=1 # 去除请求路径的1级路径
   application:
     # 服务名称
     name: service-gateway
