@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 全局针对来源
  */
-@Component
+//@Component
 public class SelfOriginParser implements RequestOriginParser {
     @Override
     public String parseOrigin(HttpServletRequest request) {

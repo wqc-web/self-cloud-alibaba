@@ -66,4 +66,8 @@ Gateway 网关
           1.Route (路由): SpringCloudGateway的基础元素，是一个转发规则。包含: ID、目标URI、Predicate集合、Filter集合
           2.Predicate (谓词): 路由匹配
           3.Filter (过滤器): 修改请求以及响应
+      自定义Predicate:
+          1.yml文件predicates属性下自定义: - TimeBetween=2022-05-02 09:10:00,2022-05-02 18:10:00
+          2.创建TimeBetweenRoutePredicateFactory类(类名格式：自定义名称 + RoutePredicateFactory)，继承AbstractRoutePredicateFactory类，实现apply(是否能访问)、shortcutFieldOrder(获取参数)方法
+
 ```
