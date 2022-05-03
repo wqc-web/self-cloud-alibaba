@@ -1,5 +1,6 @@
 package com.self.user.controller;
 
+import com.self.user.auth.SelfCheckAuthorization;
 import com.self.user.auth.SelfCheckLogin;
 import com.self.user.dao.UserMapper;
 import com.self.user.domain.dto.ContentDto;
@@ -45,6 +46,7 @@ public class UserController {
     }
 
     @SelfCheckLogin
+    @SelfCheckAuthorization("admin")
     @GetMapping("/login")
     public User login(@RequestHeader(value = "userId" ,required = false) Integer userId) {
         return userMapper.selectByPrimaryKey(userId);
