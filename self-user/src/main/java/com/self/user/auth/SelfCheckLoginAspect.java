@@ -20,11 +20,9 @@ public class SelfCheckLoginAspect {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
         HttpServletRequest request = servletRequestAttributes.getRequest();
-        String token = request.getHeader("token");
-        if(StringUtils.isNotBlank(token)){
-            request.setAttribute("userId" , "1");
-        }else{
-            throw new RuntimeException("没有token");
+        String userId = request.getHeader("userId");
+        if (StringUtils.isBlank(userId)) {
+            throw new RuntimeException("没有userId");
         }
         return point.proceed();
     }

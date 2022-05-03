@@ -27,6 +27,13 @@ public class SelfFeignSentinelFallbackFactory implements FallbackFactory<UserFei
                 list.add(user);
                 return list;
             }
+
+            @Override
+            public UserDto login(Integer userId) {
+                UserDto dto = new UserDto();
+                dto.setId(userId);
+                return dto;
+            }
         };
     }
 }

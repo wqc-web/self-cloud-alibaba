@@ -9,11 +9,10 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,8 +46,7 @@ public class UserController {
 
     @SelfCheckLogin
     @GetMapping("/login")
-    public User login(HttpServletRequest request, User user) {
-        Integer userId = Integer.valueOf((String) request.getAttribute("userId")) ;
+    public User login(@RequestHeader(value = "userId" ,required = false) Integer userId) {
         return userMapper.selectByPrimaryKey(userId);
     }
 

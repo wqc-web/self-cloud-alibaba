@@ -6,6 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface UserFeignClient {
     @GetMapping("/user/exposeQueryUser")
     List<UserDto> exposeQueryUser(@SpringQueryMap UserDto user);
 
+    @GetMapping("/user/login")
+    UserDto login(@RequestHeader("userId") Integer userId);
 }

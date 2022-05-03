@@ -95,6 +95,11 @@ public class ContentController {
         return a;
     }
 
+    @GetMapping("/accessUser")
+    public UserDto accessUser(Integer userId) {
+        return userFeignClient.login(userId);
+    }
+
     @GetMapping("/nacosServiceList")
     public List<List> nacosServiceList() {
         List<List> dataList = new ArrayList<>();
