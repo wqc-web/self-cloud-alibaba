@@ -73,4 +73,5 @@ Gateway 网关
           1.Spring Cloud Gateway的路由过滤器允许以某种方式修改传入的HTTP请求或输出的HTTP响应。只作用于特定的路由
           2.添加请求头: AddRequestHeader=selfhead, selfridicule 
           3.自定义，创建PreLogGatewayFilterFactory类(类名格式：自定义名称 + GatewayFilterFactory)，继承AbstractNameValueGatewayFilterFactory类，实现apply(对请求进行过滤操作)
+SpringAOP 可插拔拦截请求
 ```

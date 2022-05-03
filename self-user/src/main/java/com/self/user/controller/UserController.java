@@ -1,5 +1,6 @@
 package com.self.user.controller;
 
+import com.self.user.auth.SelfCheckLogin;
 import com.self.user.dao.UserMapper;
 import com.self.user.domain.dto.ContentDto;
 import com.self.user.domain.entity.User;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +43,13 @@ public class UserController {
         List<ContentDto> contentDtoList = contentFeignClient.exposeGetUserIdAll(user.getId());
         user.setContentDtoList(contentDtoList);
         return user;
+    }
+
+    @SelfCheckLogin
+    @GetMapping("/login")
+    public User login(HttpServletRequest request, User user) {
+        Integer userId = Integer.valueOf((String) request.getAttribute("userId")) ;
+        return userMapper.selectByPrimaryKey(userId);
     }
 
     @GetMapping("/nacosServiceList")
