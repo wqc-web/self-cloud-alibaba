@@ -96,8 +96,8 @@ public class ContentController {
     }
 
     @GetMapping("/accessUser")
-    public UserDto accessUser(Integer userId) {
-        return userFeignClient.login(userId);
+    public UserDto accessUser() {
+        return userFeignClient.login();
     }
 
     @GetMapping("/nacosServiceList")

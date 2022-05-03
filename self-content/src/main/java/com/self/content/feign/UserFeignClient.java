@@ -20,5 +20,6 @@ public interface UserFeignClient {
     List<UserDto> exposeQueryUser(@SpringQueryMap UserDto user);
 
     @GetMapping("/user/login")
-    UserDto login(@RequestHeader("userId") Integer userId);
+    UserDto login();
+
 }
