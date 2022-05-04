@@ -1,4 +1,13 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /user
 spring:
+  application:
+    # 服务名称
+    name: service-user
+  profiles:
+    active: dev
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/self-cloud?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
     username: root
@@ -6,6 +15,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
+      # nacos配置地址
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
       discovery:
         # 指定nacos-server地址 : ip:port
         server-addr: 127.0.0.1:8848
@@ -23,9 +36,16 @@ spring:
       transport:
         # 指定sentinel控制台地址
         dashboard: 127.0.0.1:8858
-  application:
-    # 服务名称
-    name: service-user
+# actuator
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        #显示所有端点
+        include: "*"
 
 # 配置mapper的扫描，找到所有的mapper.xml映射文件
 mybatis:
