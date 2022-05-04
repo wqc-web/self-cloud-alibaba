@@ -11,6 +11,11 @@ nacos 服务发现、服务配置、服务元数据及流量管理
       1.namespace 命名空间: 对不同环境隔离
       2.cluster-name 集群名称: 对相同划分优先调用
       3.metadata 元数据: 提供描述信息，微服务版本控制
+nacos配置管理
+      1.创建bootstrap.yml
+      2.maven添加nacos配置依赖、加载bootstrap依赖
+      3.指定nacos配置地址
+      4.添加@RefreshScope注解，动态刷新@Value值
 ribbon 客户端负载均衡，使用spring-cloud-starter-loadbalancer让@LoadBalanced注解生效
 openfeign 声明式、模板化的HTTP客户端
       配置:
