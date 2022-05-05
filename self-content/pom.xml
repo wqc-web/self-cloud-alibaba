@@ -93,6 +93,18 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
+        <!-- 分布式调用链监控 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
+        <!-- 可视化分布式调用链监控 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
+
         <!-- 单元测试支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

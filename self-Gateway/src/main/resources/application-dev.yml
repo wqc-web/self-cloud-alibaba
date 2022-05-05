@@ -38,6 +38,14 @@ spring:
           filters:
             - AddRequestHeader=selfhead, selfridicule
             - PreLog=SelfTime, 2022
+  # 可视化分布式调用链监控
+  zipkin:
+    base-url: http://127.0.0.1:9411
+  # 分布式调用链监控
+  sleuth:
+    sampler:
+      # 抽样率，默认是0.1 (10%)
+      probability: 1.0
   application:
     # 服务名称
     name: service-gateway
