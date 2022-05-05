@@ -80,4 +80,7 @@ Gateway 网关
           3.自定义，创建PreLogGatewayFilterFactory类(类名格式：自定义名称 + GatewayFilterFactory)，继承AbstractNameValueGatewayFilterFactory类，实现apply(对请求进行过滤操作)
 SpringAOP 可插拔拦截请求
 @RestControllerAdvice 全局异常处理
+sleuth 分布式调用链监控
+Zipkin 分布式跟踪系统，主要收集系统的时序数据，从而追踪系统的调用问题
+
 ```

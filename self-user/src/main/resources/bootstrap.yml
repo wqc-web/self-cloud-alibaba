@@ -8,6 +8,7 @@ spring:
     name: service-user
   profiles:
     active: dev
+  # 数据库
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/self-cloud?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
     username: root
@@ -29,6 +30,7 @@ spring:
         # 元数据: 提供描述信息，微服务版本控制
         metadata:
           version: v1
+    # 流控
     sentinel:
       filter:
         # Spring MVC端点保护 (默认开启)
@@ -36,6 +38,14 @@ spring:
       transport:
         # 指定sentinel控制台地址
         dashboard: 127.0.0.1:8858
+  # 可视化分布式调用链监控
+  zipkin:
+    base-url: http://127.0.0.1:9411
+  # 分布式调用链监控
+  sleuth:
+    sampler:
+      # 抽样率，默认是0.1 (10%)
+      probability: 1.0
 # actuator
 management:
   endpoint:
@@ -57,6 +67,7 @@ logging:
     # 指定feign打印日志
     com.self.content.feign.UserFeignClient: debug
 
+# http微服务调用
 feign:
   client:
     config:
