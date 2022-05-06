@@ -16,6 +16,9 @@ spring:
         # 元数据: 提供描述信息，微服务版本控制
         metadata:
           version: v1
+          # 指定actuator访问地址
+          management:
+            context-path: ${server.servlet.context-path}/actuator
     sentinel:
       filter:
         # Spring MVC端点保护 (默认开启)
