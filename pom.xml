@@ -21,6 +21,7 @@
         <module>self-content</module>
         <module>self-rocketmq</module>
         <module>self-Gateway</module>
+        <module>self-springbootadmin</module>
     </modules>
 
 </project>

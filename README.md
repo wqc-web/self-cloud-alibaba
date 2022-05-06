@@ -82,5 +82,5 @@ SpringAOP 可插拔拦截请求
 @RestControllerAdvice 全局异常处理
 sleuth 分布式调用链监控
 Zipkin 分布式跟踪系统，主要收集系统的时序数据，从而追踪系统的调用问题
-
+SpringBootAdmin 管理监控SpringBoot应用
 ```
