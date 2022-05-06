@@ -1,5 +1,7 @@
 server:
   port: 8020
+  servlet:
+    context-path: /springbootadmin
 spring:
   application:
     name: service-springbootadmin
@@ -7,3 +9,14 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+
+# actuator
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        #显示所有端点
+        include: "*"
